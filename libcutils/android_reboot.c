@@ -106,6 +106,8 @@ int android_reboot(int cmd, int flags, char *arg)
     int ret;
 
     sync();
+    /* HCFS terminate */
+    system("HCFSvol terminate");
     remount_ro();
 
     switch (cmd) {
