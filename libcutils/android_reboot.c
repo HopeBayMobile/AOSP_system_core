@@ -214,6 +214,8 @@ int android_reboot_with_callback(
     void (*cb_on_remount)(const struct mntent*))
 {
     int ret;
+    /* HCFS terminate */
+    system("HCFSvol terminate");
     remount_ro(cb_on_remount);
     switch (cmd) {
         case ANDROID_RB_RESTART:
